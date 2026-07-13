@@ -1,0 +1,2 @@
+import { defineConfig, devices } from '@playwright/test';
+export default defineConfig({testDir:'./tests',fullyParallel:true,retries:0,reporter:'list',use:{baseURL:process.env.BASE_URL||'http://127.0.0.1:4173',trace:'retain-on-failure'},webServer:process.env.BASE_URL?undefined:{command:'python3 -m http.server 4173 --bind 127.0.0.1 --directory dist',url:'http://127.0.0.1:4173',reuseExistingServer:true},projects:[{name:'desktop',use:{...devices['Desktop Chrome']}},{name:'mobile',use:{...devices['iPhone 13'],browserName:'chromium'}}]});

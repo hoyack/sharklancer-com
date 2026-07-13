@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560" role="img" aria-labelledby="title desc">
+<title id="title">Workflow signal radar</title><desc id="desc">Concentric radar rings with three highlighted workflow signals</desc>
+<defs><radialGradient id="g"><stop stop-color="#d9ff57" stop-opacity=".17"/><stop offset="1" stop-color="#0a1020" stop-opacity="0"/></radialGradient></defs>
+<circle cx="280" cy="280" r="276" fill="url(#g)" stroke="#2d3856" stroke-width="2"/>
+<g fill="none" stroke="#2d3856" stroke-width="2"><circle cx="280" cy="280" r="210"/><circle cx="280" cy="280" r="140"/><circle cx="280" cy="280" r="70"/><path d="M4 280h552M280 4v552M85 85l390 390M475 85 85 475"/></g>
+<path d="M280 280 434 126A218 218 0 0 1 487 211Z" fill="#d9ff57" opacity=".12"/>
+<g fill="#d9ff57"><circle cx="397" cy="161" r="10"/><circle cx="442" cy="330" r="8"/><circle cx="190" cy="389" r="7"/></g>
+<g fill="#ff6f61"><circle cx="397" cy="161" r="3"/><circle cx="442" cy="330" r="3"/><circle cx="190" cy="389" r="3"/></g>
+<text x="280" y="266" fill="#f7f8ff" font-family="system-ui,sans-serif" font-size="20" text-anchor="middle" font-weight="700">SIGNAL</text>
+<text x="280" y="292" fill="#9ba7b8" font-family="system-ui,sans-serif" font-size="14" text-anchor="middle">not theater</text>
+</svg>
