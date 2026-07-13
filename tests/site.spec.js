@@ -1,0 +1,5 @@
+import { test, expect } from '@playwright/test';
+const routes=['/','/privacy/','/terms/','/disclosure/'];
+for(const route of routes)test(`${route} renders cleanly`,async({page})=>{const errors=[];page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});page.on('pageerror',e=>errors.push(e.message));const response=await page.goto(route);expect(response?.status()).toBe(200);await expect(page.locator('body')).toBeVisible();expect(errors).toEqual([])});
+test('homepage conversion and positioning are locked',async({page})=>{await page.goto('/');await expect(page.locator('h1')).toHaveCount(1);await expect(page.getByRole('link',{name:'Book a Thunderstaff pilot call'}).first()).toHaveAttribute('href','/book');await expect(page.getByText('One front door. One delivery model.')).toBeVisible();await expect(page.locator('footer')).toContainText('© 2026 Hoyack')});
+test('desktop and mobile screenshots',async({page},testInfo)=>{await page.goto('/');await page.screenshot({path:`docs/screenshots/home-${testInfo.project.name}.png`,fullPage:true});});

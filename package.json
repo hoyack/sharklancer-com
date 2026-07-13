@@ -1,0 +1,19 @@
+{
+  "name": "sharklancer-com",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sharklancer — Thunderstaff-aligned inbound front door",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "validate": "npm run build && node scripts/validate.mjs . && node scripts/validate.mjs dist",
+    "test": "npm run validate && playwright test",
+    "test:browser": "playwright test",
+    "serve": "python3 -m http.server 4173",
+    "lighthouse": "bash scripts/lighthouse.sh"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.53.2",
+    "html-validate": "^9.7.1",
+    "lighthouse": "^12.6.1"
+  }
+}
