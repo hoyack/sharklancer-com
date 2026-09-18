@@ -18,6 +18,5 @@
 
 [[redirects]]
   from = "/book"
-  to = "https://calendly.com/hoyack?utm_source=sharklancer&utm_medium=site&utm_campaign=thunderstaff-pilot"
-  status = 302
-  force = true
+  to = "/book/"
+  status = 301
