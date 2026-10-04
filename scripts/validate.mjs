@@ -29,7 +29,7 @@ for (const page of pages) {
   }
   for (const match of html.matchAll(/(?:href|src)="([^"#]+)(?:#[^"]*)?"/g)) {
     const url = match[1];
-    if (/^(https?:|mailto:|tel:|data:)/.test(url) || url === '/book') continue;
+    if (/^(https?:|mailto:|tel:|data:)/.test(url)) continue;
     let target = url.startsWith('/') ? path.join(root, url) : path.resolve(path.dirname(page), url);
     if (url.endsWith('/')) target = path.join(target, 'index.html');
     if (!fs.existsSync(target)) errors.push(`${path.relative(root, page)} broken local reference: ${url}`);

@@ -1,5 +1,7 @@
 node_modules/
-dist/
+dist/*
+!dist/_headers
+!dist/_redirects
 playwright-report/
 test-results/
 .lighthouseci/

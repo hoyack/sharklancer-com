@@ -1,0 +1,590 @@
+{
+  "browser": [
+    {
+      "site": "sharklancer-com",
+      "route": "/",
+      "width": 1440,
+      "overflow": false,
+      "overflowNodes": [],
+      "focused": {
+        "tag": "A",
+        "text": "Skip to content",
+        "outline": "solid"
+      },
+      "stylesheet": [
+        {
+          "href": "http://127.0.0.1:43655/assets/site.css",
+          "rules": 5
+        }
+      ],
+      "forms": [],
+      "errors": [],
+      "screenshot": "/home/hoyack/paperclip-work/HOY-266/sharklancer-com/docs/screenshots/hoy-266/--1440.png",
+      "violations": []
+    },
+    {
+      "site": "sharklancer-com",
+      "route": "/book/",
+      "width": 1440,
+      "overflow": false,
+      "overflowNodes": [],
+      "focused": {
+        "tag": "A",
+        "text": "Skip to content",
+        "outline": "solid"
+      },
+      "stylesheet": [
+        {
+          "href": "http://127.0.0.1:43655/assets/site.css",
+          "rules": 5
+        }
+      ],
+      "forms": [],
+      "errors": [],
+      "screenshot": "/home/hoyack/paperclip-work/HOY-266/sharklancer-com/docs/screenshots/hoy-266/-book--1440.png",
+      "violations": []
+    },
+    {
+      "site": "sharklancer-com",
+      "route": "/",
+      "width": 390,
+      "overflow": false,
+      "overflowNodes": [],
+      "focused": {
+        "tag": "A",
+        "text": "Skip to content",
+        "outline": "solid"
+      },
+      "stylesheet": [
+        {
+          "href": "http://127.0.0.1:43655/assets/site.css",
+          "rules": 5
+        }
+      ],
+      "forms": [],
+      "errors": [],
+      "screenshot": "/home/hoyack/paperclip-work/HOY-266/sharklancer-com/docs/screenshots/hoy-266/--390.png",
+      "violations": []
+    },
+    {
+      "site": "sharklancer-com",
+      "route": "/book/",
+      "width": 390,
+      "overflow": false,
+      "overflowNodes": [],
+      "focused": {
+        "tag": "A",
+        "text": "Skip to content",
+        "outline": "solid"
+      },
+      "stylesheet": [
+        {
+          "href": "http://127.0.0.1:43655/assets/site.css",
+          "rules": 5
+        }
+      ],
+      "forms": [],
+      "errors": [],
+      "screenshot": "/home/hoyack/paperclip-work/HOY-266/sharklancer-com/docs/screenshots/hoy-266/-book--390.png",
+      "violations": []
+    }
+  ],
+  "native_form_audit": [
+    {
+      "site": "compromisly-com",
+      "base_sha": "0d9aa9b6082d57b94e7a3a2e96e1c23948b5b3bf",
+      "publish": "/home/hoyack/paperclip-work/HOY-266/compromisly-com/dist",
+      "page": "checklist/index.html",
+      "form": {
+        "attributes": {
+          "name": "compromisly-checklist",
+          "method": "POST",
+          "data-netlify": "true",
+          "netlify-honeypot": "bot-field",
+          "action": "/checklist/thanks/?submitted=1",
+          "class": "lead-form"
+        },
+        "inputs": [
+          {
+            "type": "hidden",
+            "name": "source",
+            "value": "compromisly"
+          },
+          {
+            "type": "hidden",
+            "name": "offer",
+            "value": "free-negotiation-prep-checklist"
+          },
+          {
+            "type": "hidden",
+            "name": "form-name",
+            "value": "compromisly-checklist"
+          },
+          {
+            "name": "bot-field",
+            "tabindex": "-1",
+            "autocomplete": "off"
+          },
+          {
+            "id": "name",
+            "name": "name",
+            "type": "text",
+            "autocomplete": "name",
+            "required": null
+          },
+          {
+            "id": "email",
+            "name": "email",
+            "type": "email",
+            "autocomplete": "email",
+            "required": null
+          },
+          {
+            "id": "role",
+            "name": "role",
+            "required": null
+          },
+          {
+            "id": "privacy-consent",
+            "name": "privacy-consent",
+            "type": "checkbox",
+            "required": null
+          }
+        ]
+      },
+      "checks": {
+        "post": true,
+        "detection": true,
+        "named_unique": true,
+        "hidden_identity": true,
+        "declared_honeypot": true,
+        "local_success_route": true
+      },
+      "markup_pass": true,
+      "hosted_submission_proven": false
+    },
+    {
+      "site": "marijuanafactcheck-com",
+      "base_sha": "6ab41b8e0b48a2d07f53cfa9dd56b240ff926c5e",
+      "publish": "/home/hoyack/paperclip-work/HOY-266/marijuanafactcheck-com/dist",
+      "page": "submit-claim/index.html",
+      "form": {
+        "attributes": {
+          "name": "mfc-claim",
+          "class": "lead-form",
+          "method": "POST",
+          "data-netlify": "true",
+          "netlify-honeypot": "bot-field",
+          "action": "/submit-claim/thanks/?submitted=1",
+          "data-conversion-form": "claim_submit"
+        },
+        "inputs": [
+          {
+            "type": "hidden",
+            "name": "form-name",
+            "value": "mfc-claim"
+          },
+          {
+            "type": "hidden",
+            "name": "source",
+            "value": "marijuanafactcheck"
+          },
+          {
+            "type": "hidden",
+            "name": "offer",
+            "value": "claim-submission"
+          },
+          {
+            "type": "text",
+            "name": "bot-field",
+            "tabindex": "-1",
+            "autocomplete": "off"
+          },
+          {
+            "id": "claim-text",
+            "name": "claim_text",
+            "required": null,
+            "placeholder": "Paste or describe the exact claim as it appears. Include the full sentence or statement."
+          },
+          {
+            "type": "text",
+            "id": "claim-source",
+            "name": "claim_source",
+            "required": null,
+            "placeholder": "URL, publication name, social platform, or other source"
+          },
+          {
+            "type": "email",
+            "id": "claim-email",
+            "name": "email",
+            "placeholder": "you@example.com",
+            "autocomplete": "email"
+          },
+          {
+            "id": "claim-notes",
+            "name": "notes",
+            "placeholder": "Why this claim matters, what you know about it, or any evidence you have already found."
+          },
+          {
+            "type": "checkbox",
+            "name": "privacy-consent",
+            "required": null
+          }
+        ]
+      },
+      "checks": {
+        "post": true,
+        "detection": true,
+        "named_unique": true,
+        "hidden_identity": true,
+        "declared_honeypot": true,
+        "local_success_route": true
+      },
+      "markup_pass": true,
+      "hosted_submission_proven": false
+    },
+    {
+      "site": "marijuanafactcheck-com",
+      "base_sha": "6ab41b8e0b48a2d07f53cfa9dd56b240ff926c5e",
+      "publish": "/home/hoyack/paperclip-work/HOY-266/marijuanafactcheck-com/dist",
+      "page": "newsletter/index.html",
+      "form": {
+        "attributes": {
+          "name": "mfc-newsletter",
+          "class": "lead-form",
+          "method": "POST",
+          "data-netlify": "true",
+          "netlify-honeypot": "bot-field",
+          "action": "/newsletter/thanks/?subscribed=1",
+          "data-conversion-form": "newsletter_submit"
+        },
+        "inputs": [
+          {
+            "type": "hidden",
+            "name": "form-name",
+            "value": "mfc-newsletter"
+          },
+          {
+            "type": "hidden",
+            "name": "source",
+            "value": "marijuanafactcheck"
+          },
+          {
+            "type": "hidden",
+            "name": "offer",
+            "value": "evidence-newsletter"
+          },
+          {
+            "type": "text",
+            "name": "bot-field",
+            "tabindex": "-1",
+            "autocomplete": "off"
+          },
+          {
+            "type": "email",
+            "id": "newsletter-email",
+            "name": "email",
+            "required": null,
+            "placeholder": "you@example.com",
+            "autocomplete": "email"
+          },
+          {
+            "type": "text",
+            "id": "newsletter-name",
+            "name": "first_name",
+            "placeholder": "Your name",
+            "autocomplete": "given-name"
+          },
+          {
+            "type": "checkbox",
+            "name": "privacy-consent",
+            "required": null
+          }
+        ]
+      },
+      "checks": {
+        "post": true,
+        "detection": true,
+        "named_unique": true,
+        "hidden_identity": true,
+        "declared_honeypot": true,
+        "local_success_route": true
+      },
+      "markup_pass": true,
+      "hosted_submission_proven": false
+    },
+    {
+      "site": "montgomeryhoyack-com",
+      "base_sha": "bfdf80eca6e510f6c4e5a84d58297c11a38a4514",
+      "publish": "/home/hoyack/paperclip-work/HOY-266/montgomeryhoyack-com/dist",
+      "page": "contact/index.html",
+      "form": {
+        "attributes": {
+          "name": "qualified-inquiry",
+          "method": "POST",
+          "action": "/thanks/",
+          "data-netlify": "true",
+          "netlify-honeypot": "company-website"
+        },
+        "inputs": [
+          {
+            "type": "hidden",
+            "name": "form-name",
+            "value": "qualified-inquiry"
+          },
+          {
+            "type": "text",
+            "name": "company-website",
+            "autocomplete": "off",
+            "tabindex": "-1"
+          },
+          {
+            "type": "text",
+            "name": "name",
+            "autocomplete": "name",
+            "required": null
+          },
+          {
+            "type": "email",
+            "name": "email",
+            "autocomplete": "email",
+            "required": null
+          },
+          {
+            "name": "inquiry-type",
+            "required": null
+          },
+          {
+            "name": "brief",
+            "minlength": "40",
+            "maxlength": "4000",
+            "required": null,
+            "placeholder": "What must change, what is constrained, who owns the decision, and when does it matter?"
+          }
+        ]
+      },
+      "checks": {
+        "post": true,
+        "detection": true,
+        "named_unique": true,
+        "hidden_identity": true,
+        "declared_honeypot": true,
+        "local_success_route": true
+      },
+      "markup_pass": true,
+      "hosted_submission_proven": false
+    },
+    {
+      "site": "txpentest-com",
+      "base_sha": "097130f0e1c00e3b84b07d0e73e70e9c0574f28e",
+      "publish": "/home/hoyack/paperclip-work/HOY-266/txpentest-com",
+      "page": "contact/index.html",
+      "form": {
+        "attributes": {
+          "class": "form",
+          "name": "assessment-intake",
+          "method": "POST",
+          "action": "/contact/thanks/",
+          "data-netlify": "true",
+          "netlify-honeypot": "company-website"
+        },
+        "inputs": [
+          {
+            "type": "hidden",
+            "name": "form-name",
+            "value": "assessment-intake"
+          },
+          {
+            "type": "hidden",
+            "name": "source",
+            "value": "txpentest"
+          },
+          {
+            "type": "hidden",
+            "name": "offer",
+            "value": "security-poo"
+          },
+          {
+            "name": "company-website",
+            "type": "text",
+            "tabindex": "-1",
+            "autocomplete": "off"
+          },
+          {
+            "id": "name",
+            "name": "name",
+            "type": "text",
+            "autocomplete": "name",
+            "required": null,
+            "maxlength": "100"
+          },
+          {
+            "id": "email",
+            "name": "email",
+            "type": "email",
+            "autocomplete": "email",
+            "inputmode": "email",
+            "required": null,
+            "maxlength": "254"
+          },
+          {
+            "id": "organization",
+            "name": "organization",
+            "type": "text",
+            "autocomplete": "organization",
+            "required": null,
+            "maxlength": "150"
+          },
+          {
+            "id": "service",
+            "name": "service",
+            "required": null
+          },
+          {
+            "id": "timeline",
+            "name": "timeline",
+            "type": "text",
+            "maxlength": "120",
+            "placeholder": "Example: before an October release"
+          },
+          {
+            "id": "summary",
+            "name": "summary",
+            "required": null,
+            "maxlength": "1500",
+            "aria-describedby": "summary-help"
+          },
+          {
+            "id": "authority",
+            "name": "authority",
+            "type": "checkbox",
+            "required": null,
+            "value": "confirmed"
+          },
+          {
+            "id": "privacy-consent",
+            "name": "privacy-consent",
+            "type": "checkbox",
+            "required": null,
+            "value": "accepted"
+          }
+        ]
+      },
+      "checks": {
+        "post": true,
+        "detection": true,
+        "named_unique": true,
+        "hidden_identity": true,
+        "declared_honeypot": true,
+        "local_success_route": true
+      },
+      "markup_pass": true,
+      "hosted_submission_proven": false
+    },
+    {
+      "site": "scrapetoken-com",
+      "base_sha": "f5df3394ac9bdf35147f9083faf3f96ae11edeb8",
+      "publish": "/home/hoyack/paperclip-work/HOY-266/scrapetoken-com/dist",
+      "page": "waitlist/index.html",
+      "form": {
+        "attributes": {
+          "name": "scrapetoken-waitlist",
+          "method": "POST",
+          "action": "/waitlist/thanks/",
+          "data-netlify": "true",
+          "netlify-honeypot": "bot-field"
+        },
+        "inputs": [
+          {
+            "type": "hidden",
+            "name": "form-name",
+            "value": "scrapetoken-waitlist"
+          },
+          {
+            "type": "hidden",
+            "name": "source",
+            "value": "scrapetoken"
+          },
+          {
+            "type": "hidden",
+            "name": "offer",
+            "value": "service-orchard-adjacent"
+          },
+          {
+            "id": "bot-field",
+            "name": "bot-field",
+            "type": "text",
+            "tabindex": "-1",
+            "autocomplete": "off"
+          },
+          {
+            "id": "name",
+            "name": "name",
+            "type": "text",
+            "autocomplete": "name",
+            "required": null,
+            "maxlength": "120"
+          },
+          {
+            "id": "email",
+            "name": "email",
+            "type": "email",
+            "autocomplete": "email",
+            "required": null,
+            "maxlength": "254"
+          },
+          {
+            "id": "company",
+            "name": "company",
+            "type": "text",
+            "autocomplete": "organization",
+            "required": null,
+            "maxlength": "160"
+          },
+          {
+            "id": "sources-needed",
+            "name": "sources-needed",
+            "rows": "5",
+            "required": null,
+            "maxlength": "2000",
+            "placeholder": "Vendor portals, customer-authorized documents, public catalogs\u2026"
+          },
+          {
+            "id": "volume",
+            "name": "volume",
+            "type": "text",
+            "maxlength": "120",
+            "placeholder": "Records per day, week, or month"
+          },
+          {
+            "id": "privacy-consent",
+            "name": "privacy-consent",
+            "type": "checkbox",
+            "value": "yes",
+            "required": null
+          }
+        ]
+      },
+      "checks": {
+        "post": true,
+        "detection": true,
+        "named_unique": true,
+        "hidden_identity": true,
+        "declared_honeypot": true,
+        "local_success_route": true
+      },
+      "markup_pass": true,
+      "hosted_submission_proven": false
+    }
+  ],
+  "review": {
+    "passed": true,
+    "security_concerns": [],
+    "logic_errors": [],
+    "suggestions": [
+      "MFC success-page metadata still uses existing Subscribed title; enrollment is explicitly unverified in visible copy and handoff.",
+      "Built honeypot regex assertion could be strengthened; separate HTMLParser audit verified actual input elements."
+    ],
+    "summary": "Independent read-only review passed all three staged diffs; no deployment or hosted submission proof."
+  }
+}

@@ -1,0 +1,2 @@
+# Path-portable redirects. Targets must stay site-relative.
+/book   /book/   301
