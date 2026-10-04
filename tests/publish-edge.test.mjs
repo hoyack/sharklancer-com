@@ -16,28 +16,47 @@ function parseTomlPolicy(text) {
     if (line === '[[headers]]') { current = { for: null, values: {} }; headers.push(current); section = 'header'; continue; }
     if (line === '[headers.values]') { section = 'header-values'; continue; }
     if (line === '[[redirects]]') { current = { from: null, to: null, status: null }; redirects.push(current); section = 'redirect'; continue; }
+    if (line.startsWith('[')) {
+      if (line.startsWith('[headers')) throw new Error(`unsupported policy section: ${raw}`);
+      section = 'irrelevant'; current = null; continue;
+    }
+    if (section === 'irrelevant') continue;
+    if (!current || !section) throw new Error(`unsupported policy line: ${raw}`);
     const match = line.match(/^([^=]+?)\s*=\s*(?:"(.*)"|(\d+))$/);
-    if (!match || !current) continue;
+    if (!match) throw new Error(`unsupported policy syntax: ${raw}`);
     const key = match[1].trim(), value = match[2] ?? match[3];
-    if (section === 'header') current[key] = value;
+    if (section === 'header') {
+      if (key !== 'for') throw new Error(`unsupported header policy key: ${key}`);
+      current[key] = value;
+    }
     if (section === 'header-values') current.values[key] = value;
-    if (section === 'redirect') current[key] = key === 'status' ? Number(value) : value;
+    if (section === 'redirect') {
+      if (!['from', 'to', 'status'].includes(key)) throw new Error(`unsupported redirect policy key: ${key}`);
+      current[key] = key === 'status' ? Number(value) : value;
+    }
   }
   return { headers, redirects };
 }
 function parseHeaders(text) {
-  const rules = []; let current = null;
+  const rules = []; let current = null; let names = null;
   for (const raw of text.split('\n')) {
     if (!raw.trim() || raw.trim().startsWith('#')) continue;
-    if (!raw.startsWith(' ') && raw.startsWith('/')) { current = { for: raw.trim(), values: {} }; rules.push(current); continue; }
+    if (!raw.startsWith(' ') && raw.startsWith('/')) { current = { for: raw.trim(), values: {} }; names = new Set(); rules.push(current); continue; }
     const match = raw.match(/^\s+([^:]+):\s*(.+)$/);
-    if (match && current) current.values[match[1].trim()] = match[2].trim();
+    if (!match || !current) throw new Error(`unsupported header line: ${raw}`);
+    const name = match[1].trim();
+    const normalized = name.toLowerCase();
+    if (names.has(normalized)) throw new Error(`duplicate header name in ${current.for}: ${name}`);
+    names.add(normalized);
+    current.values[name] = match[2].trim();
   }
   return rules;
 }
 function parseRedirects(text) {
   return text.split('\n').map((line) => line.trim()).filter((line) => line && !line.startsWith('#')).map((line) => {
-    const [from, to, status] = line.split(/\s+/); return { from, to, status: Number(status) };
+    const tokens = line.split(/\s+/);
+    if (tokens.length !== 3 || !/^\d{3}$/.test(tokens[2])) throw new Error(`unsupported redirect tokens: ${line}`);
+    const [from, to, status] = tokens; return { from, to, status: Number(status) };
   });
 }
 const expected = parseTomlPolicy(toml);
@@ -65,4 +84,7 @@ assertPairedMutationFails('remove frame-ancestors', (value) => value.replaceAll(
 if (headers.includes('upgrade-insecure-requests')) assertPairedMutationFails('remove upgrade-insecure-requests', (value) => value.replaceAll('; upgrade-insecure-requests', ''));
 const first = expected.redirects[0];
 assertPairedMutationFails('change redirect status', undefined, (value) => value.replace(new RegExp(`(${escapeRegExp(first.from)}\\s+${escapeRegExp(first.to)}\\s+)${first.status}`), '$1302'));
+assertPairedMutationFails('add redirect condition token', undefined, (value) => value.replace(new RegExp(`(${escapeRegExp(first.from)}\\s+${escapeRegExp(first.to)}\\s+${first.status})`), '$1 Country=us'));
+assertPairedMutationFails('add duplicate Cache-Control', (value) => value.replace(/(\s+Cache-Control:.*\n)/, '$1$1'));
+assert.throws(() => parseTomlPolicy(`${toml}\nforce = true`), /unsupported (redirect policy key|policy syntax)/, 'boolean policy keys must not be ignored');
 console.log('Verified semantic Netlify policy parity and paired negative mutations.');
