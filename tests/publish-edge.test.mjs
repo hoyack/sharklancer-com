@@ -16,11 +16,9 @@ function parseTomlPolicy(text) {
     if (line === '[[headers]]') { current = { for: null, values: {} }; headers.push(current); section = 'header'; continue; }
     if (line === '[headers.values]') { section = 'header-values'; continue; }
     if (line === '[[redirects]]') { current = { from: null, to: null, status: null }; redirects.push(current); section = 'redirect'; continue; }
-    if (line.startsWith('[')) {
-      if (line.startsWith('[headers')) throw new Error(`unsupported policy section: ${raw}`);
-      section = 'irrelevant'; current = null; continue;
-    }
-    if (section === 'irrelevant') continue;
+    if (line === '[build]') { section = 'build'; current = null; continue; }
+    if (line.startsWith('[')) throw new Error(`unsupported policy section: ${raw}`);
+    if (section === 'build') continue;
     if (!current || !section) throw new Error(`unsupported policy line: ${raw}`);
     const match = line.match(/^([^=]+?)\s*=\s*(?:"(.*)"|(\d+))$/);
     if (!match) throw new Error(`unsupported policy syntax: ${raw}`);
@@ -87,4 +85,6 @@ assertPairedMutationFails('change redirect status', undefined, (value) => value.
 assertPairedMutationFails('add redirect condition token', undefined, (value) => value.replace(new RegExp(`(${escapeRegExp(first.from)}\\s+${escapeRegExp(first.to)}\\s+${first.status})`), '$1 Country=us'));
 assertPairedMutationFails('add duplicate Cache-Control', (value) => value.replace(/(\s+Cache-Control:.*\n)/, '$1$1'));
 assert.throws(() => parseTomlPolicy(`${toml}\nforce = true`), /unsupported (redirect policy key|policy syntax)/, 'boolean policy keys must not be ignored');
+assert.throws(() => parseTomlPolicy(`${toml}\n[redirects.conditions]\nCountry = ["us"]`), /unsupported policy section/, 'redirect conditions must not be ignored');
+assert.throws(() => parseTomlPolicy(`${toml}\n[unknown_future_policy]\nkey = "value"`), /unsupported policy section/, 'unknown TOML policy tables must fail closed');
 console.log('Verified semantic Netlify policy parity and paired negative mutations.');
