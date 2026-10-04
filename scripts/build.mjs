@@ -8,4 +8,7 @@ fs.mkdirSync(dist, { recursive: true });
 for (const item of ['index.html', 'robots.txt', 'sitemap.xml', 'assets', 'privacy', 'terms', 'disclosure', 'book']) {
   fs.cpSync(path.join(root, item), path.join(dist, item), { recursive: true });
 }
+for (const file of ['_headers', '_redirects']) {
+  fs.copyFileSync(path.join(root, 'netlify', file), path.join(dist, file));
+}
 console.log('Built deployable static artifact in dist/.');
